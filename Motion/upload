@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# make sure that all child processes get terminated when this script is terminated
+trap 'pkill -P $$' EXIT
+
+# upload the image to the Arduino
+/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude \
+    -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf \
+    -q -q -patmega2560 \
+    -cwiring -P/dev/cu.usbmodem141101 -b115200 \
+    -D \
+    -Uflash:w:/Users/matt/dev/Spot/Motion/build/Motion.cpp.hex:i
+
+# Conenct via serail port, so we can see the log output
+#  a: this runs only at 9600bps because socat on macOS is proken (brew and port)
+#  b: this does not work for sending serial data to the MCU (but we could
+#     also just start another app here)
+/opt/local/bin/socat open:/dev/cu.usbmodem141101 stdio
+
