@@ -1,0 +1,34 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0400
+header_name {.h}
+code_name {.cxx}
+Function {CreateMainWindow()} {open
+} {
+  Fl_Window {} {open
+    xywh {703 156 320 640} type Double visible
+  } {
+    Fl_Button wConnect {
+      label Connect
+      callback ConnectBT
+      xywh {24 24 88 28}
+    }
+    Fl_Button wDisconnect {
+      label Disconnect
+      callback DisconnectBT
+      xywh {128 24 88 28}
+    }
+    Fl_Button {} {
+      label Beep
+      callback BeepCB
+      xywh {24 96 88 28}
+    }
+    Fl_Value_Slider {} {
+      label s
+      callback SendServoPosCB selected
+      xywh {128 100 28 296} minimum 1000 maximum 2000 step 1 value 1500
+    }
+  }
+}
+
+decl {\#include "Spotter.h"} {private local
+}

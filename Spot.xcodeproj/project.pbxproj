@@ -3,35 +3,205 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C9E32EE5243A3425000164AD /* SpotterUI.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C9E32EE3243A3425000164AD /* SpotterUI.cxx */; };
+		C9E32EEE243A35FF000164AD /* libfltk_images.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEC243A35F7000164AD /* libfltk_images.a */; };
+		C9E32EEF243A35FF000164AD /* libfltk_jpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EE9243A35F7000164AD /* libfltk_jpeg.a */; };
+		C9E32EF0243A35FF000164AD /* libfltk_png.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEA243A35F7000164AD /* libfltk_png.a */; };
+		C9E32EF1243A35FF000164AD /* libfltk_z.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEB243A35F7000164AD /* libfltk_z.a */; };
+		C9E32EF2243A35FF000164AD /* libfltk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EED243A35F7000164AD /* libfltk.a */; };
+		C9E32EF4243A37A8000164AD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF3243A37A8000164AD /* CoreFoundation.framework */; };
+		C9E32EF6243A37B6000164AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF5243A37B6000164AD /* CoreGraphics.framework */; };
+		C9E32EF8243A37E3000164AD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF7243A37E3000164AD /* Cocoa.framework */; };
+		C9E32EFA243A39D8000164AD /* libbluetoothserialport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF9243A39D3000164AD /* libbluetoothserialport.a */; };
+		C9E32EFE243A3B65000164AD /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EFD243A3B65000164AD /* IOBluetooth.framework */; };
+		C9E32F00243A561F000164AD /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EFF243A561F000164AD /* IOBluetoothUI.framework */; };
+		C9E32F0C243B4257000164AD /* ChatBluetoothInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F08243B4257000164AD /* ChatBluetoothInterface.m */; };
+		C9E32F0D243B4257000164AD /* ChatBluetoothInterface_ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F09243B4257000164AD /* ChatBluetoothInterface_ObjC.m */; };
+		C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F0A243B4257000164AD /* TBluetoothClient.mm */; };
+		C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F10243B4958000164AD /* ChatClientController.mm */; };
+		C9ED245F243A2CC40098DFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED245E243A2CC40098DFFF /* Assets.xcassets */; };
+		C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9ED246A243A2CFD0098DFFF /* Spotter.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		C9ED246F243A2F300098DFFF /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.fl";
+			fileType = pattern.proxy;
+			inputFiles = (
+				"${INPUT_FILE_DIR}/${INPUT_FILE_BASE}.fl",
+			);
+			isEditable = 1;
+			outputFiles = (
+				"${INPUT_FILE_DIR}/${INPUT_FILE_BASE}.cxx",
+				"${INPUT_FILE_DIR}/${INPUT_FILE_BASE}.h",
+			);
+			runOncePerArchitecture = 0;
+			script = "cd ${INPUT_FILE_DIR} && /Applications/Fluid.app/Contents/MacOS/Fluid -c ${INPUT_FILE_NAME}\n";
+		};
+		C9ED2473243A33720098DFFF /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
-		C9E2DB39243A08C7002C1DF0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		C9E2DB3A243A08C7002C1DF0 /* Motion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Motion.cpp; sourceTree = "<group>"; };
 		C9E2DB3C243A08C7002C1DF0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C9E2DB3D243A08C7002C1DF0 /* upload */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upload; sourceTree = "<group>"; };
 		C9E2DB3E243A08F1002C1DF0 /* Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Motion.h; sourceTree = "<group>"; };
+		C9E32EE3243A3425000164AD /* SpotterUI.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotterUI.cxx; sourceTree = "<group>"; };
+		C9E32EE4243A3425000164AD /* SpotterUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotterUI.h; sourceTree = "<group>"; };
+		C9E32EE7243A3508000164AD /* libfltk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk.a; path = ../../../../usr/local/lib/libfltk.a; sourceTree = "<group>"; };
+		C9E32EE9243A35F7000164AD /* libfltk_jpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk_jpeg.a; path = Spotter/lib/libfltk_jpeg.a; sourceTree = "<group>"; };
+		C9E32EEA243A35F7000164AD /* libfltk_png.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk_png.a; path = Spotter/lib/libfltk_png.a; sourceTree = "<group>"; };
+		C9E32EEB243A35F7000164AD /* libfltk_z.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk_z.a; path = Spotter/lib/libfltk_z.a; sourceTree = "<group>"; };
+		C9E32EEC243A35F7000164AD /* libfltk_images.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk_images.a; path = Spotter/lib/libfltk_images.a; sourceTree = "<group>"; };
+		C9E32EED243A35F7000164AD /* libfltk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk.a; path = Spotter/lib/libfltk.a; sourceTree = "<group>"; };
+		C9E32EF3243A37A8000164AD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C9E32EF5243A37B6000164AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C9E32EF7243A37E3000164AD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C9E32EF9243A39D3000164AD /* libbluetoothserialport.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbluetoothserialport.a; path = Spotter/lib/libbluetoothserialport.a; sourceTree = "<group>"; };
+		C9E32EFD243A3B65000164AD /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		C9E32EFF243A561F000164AD /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
+		C9E32F06243B4257000164AD /* ChatBluetoothInterface_ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBluetoothInterface_ObjC.h; sourceTree = "<group>"; };
+		C9E32F07243B4257000164AD /* TBluetoothClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBluetoothClient.h; sourceTree = "<group>"; };
+		C9E32F08243B4257000164AD /* ChatBluetoothInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatBluetoothInterface.m; sourceTree = "<group>"; };
+		C9E32F09243B4257000164AD /* ChatBluetoothInterface_ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatBluetoothInterface_ObjC.m; sourceTree = "<group>"; };
+		C9E32F0A243B4257000164AD /* TBluetoothClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TBluetoothClient.mm; sourceTree = "<group>"; };
+		C9E32F0B243B4257000164AD /* ChatBluetoothInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBluetoothInterface.h; sourceTree = "<group>"; };
+		C9E32F0F243B4958000164AD /* ChatClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClientController.h; sourceTree = "<group>"; };
+		C9E32F10243B4958000164AD /* ChatClientController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChatClientController.mm; sourceTree = "<group>"; };
+		C9ED244F243A21210098DFFF /* SpotScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotScreen.cpp; sourceTree = "<group>"; };
+		C9ED2450243A21210098DFFF /* SpotScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotScreen.h; sourceTree = "<group>"; };
+		C9ED2451243A21210098DFFF /* SpotPWM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotPWM.cpp; sourceTree = "<group>"; };
+		C9ED2452243A21210098DFFF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C9ED2453243A21210098DFFF /* SpotPWM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotPWM.h; sourceTree = "<group>"; };
+		C9ED2458243A2CC20098DFFF /* Spotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9ED245E243A2CC40098DFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9ED2463243A2CC40098DFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9ED2466243A2CC40098DFFF /* Spotter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spotter.entitlements; sourceTree = "<group>"; };
+		C9ED246A243A2CFD0098DFFF /* Spotter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Spotter.cpp; sourceTree = "<group>"; };
+		C9ED246B243A2CFD0098DFFF /* Spotter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spotter.h; sourceTree = "<group>"; };
+		C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fluid; path = SpotterUI.fl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9ED2455243A2CC20098DFFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E32EFA243A39D8000164AD /* libbluetoothserialport.a in Frameworks */,
+				C9E32EF8243A37E3000164AD /* Cocoa.framework in Frameworks */,
+				C9E32EEF243A35FF000164AD /* libfltk_jpeg.a in Frameworks */,
+				C9E32EEE243A35FF000164AD /* libfltk_images.a in Frameworks */,
+				C9E32EF4243A37A8000164AD /* CoreFoundation.framework in Frameworks */,
+				C9E32EF6243A37B6000164AD /* CoreGraphics.framework in Frameworks */,
+				C9E32EF0243A35FF000164AD /* libfltk_png.a in Frameworks */,
+				C9E32EF1243A35FF000164AD /* libfltk_z.a in Frameworks */,
+				C9E32F00243A561F000164AD /* IOBluetoothUI.framework in Frameworks */,
+				C9E32EF2243A35FF000164AD /* libfltk.a in Frameworks */,
+				C9E32EFE243A3B65000164AD /* IOBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		C9E2DB27243A0701002C1DF0 = {
 			isa = PBXGroup;
 			children = (
 				C9E2DB38243A0886002C1DF0 /* Motion */,
+				C9ED245A243A2CC20098DFFF /* Spotter */,
+				C9ED2459243A2CC20098DFFF /* Products */,
+				C9E32EE6243A3508000164AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		C9E2DB38243A0886002C1DF0 /* Motion */ = {
 			isa = PBXGroup;
 			children = (
+				C9ED2452243A21210098DFFF /* README.md */,
 				C9E2DB3A243A08C7002C1DF0 /* Motion.cpp */,
 				C9E2DB3E243A08F1002C1DF0 /* Motion.h */,
+				C9ED2451243A21210098DFFF /* SpotPWM.cpp */,
+				C9ED2453243A21210098DFFF /* SpotPWM.h */,
+				C9ED244F243A21210098DFFF /* SpotScreen.cpp */,
+				C9ED2450243A21210098DFFF /* SpotScreen.h */,
 				C9E2DB3C243A08C7002C1DF0 /* Makefile */,
 				C9E2DB3D243A08C7002C1DF0 /* upload */,
-				C9E2DB39243A08C7002C1DF0 /* README.txt */,
 			);
 			path = Motion;
+			sourceTree = "<group>";
+		};
+		C9E32EE6243A3508000164AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9E32EFF243A561F000164AD /* IOBluetoothUI.framework */,
+				C9E32EFD243A3B65000164AD /* IOBluetooth.framework */,
+				C9E32EF9243A39D3000164AD /* libbluetoothserialport.a */,
+				C9E32EF7243A37E3000164AD /* Cocoa.framework */,
+				C9E32EF5243A37B6000164AD /* CoreGraphics.framework */,
+				C9E32EF3243A37A8000164AD /* CoreFoundation.framework */,
+				C9E32EEC243A35F7000164AD /* libfltk_images.a */,
+				C9E32EE9243A35F7000164AD /* libfltk_jpeg.a */,
+				C9E32EEA243A35F7000164AD /* libfltk_png.a */,
+				C9E32EEB243A35F7000164AD /* libfltk_z.a */,
+				C9E32EED243A35F7000164AD /* libfltk.a */,
+				C9E32EE7243A3508000164AD /* libfltk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9E32F05243B4257000164AD /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				C9E32F09243B4257000164AD /* ChatBluetoothInterface_ObjC.m */,
+				C9E32F06243B4257000164AD /* ChatBluetoothInterface_ObjC.h */,
+				C9E32F08243B4257000164AD /* ChatBluetoothInterface.m */,
+				C9E32F0B243B4257000164AD /* ChatBluetoothInterface.h */,
+				C9E32F10243B4958000164AD /* ChatClientController.mm */,
+				C9E32F0F243B4958000164AD /* ChatClientController.h */,
+				C9E32F0A243B4257000164AD /* TBluetoothClient.mm */,
+				C9E32F07243B4257000164AD /* TBluetoothClient.h */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		C9ED2459243A2CC20098DFFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED2458243A2CC20098DFFF /* Spotter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9ED245A243A2CC20098DFFF /* Spotter */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED245E243A2CC40098DFFF /* Assets.xcassets */,
+				C9ED2463243A2CC40098DFFF /* Info.plist */,
+				C9ED2466243A2CC40098DFFF /* Spotter.entitlements */,
+				C9ED246A243A2CFD0098DFFF /* Spotter.cpp */,
+				C9ED246B243A2CFD0098DFFF /* Spotter.h */,
+				C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */,
+				C9E32EE3243A3425000164AD /* SpotterUI.cxx */,
+				C9E32EE4243A3425000164AD /* SpotterUI.h */,
+				C9E32F05243B4257000164AD /* Bluetooth */,
+			);
+			path = Spotter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -53,6 +223,28 @@
 		};
 /* End PBXLegacyTarget section */
 
+/* Begin PBXNativeTarget section */
+		C9ED2457243A2CC20098DFFF /* Spotter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9ED2467243A2CC40098DFFF /* Build configuration list for PBXNativeTarget "Spotter" */;
+			buildPhases = (
+				C9ED2454243A2CC20098DFFF /* Sources */,
+				C9ED2455243A2CC20098DFFF /* Frameworks */,
+				C9ED2456243A2CC20098DFFF /* Resources */,
+			);
+			buildRules = (
+				C9ED2473243A33720098DFFF /* PBXBuildRule */,
+				C9ED246F243A2F300098DFFF /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = Spotter;
+			productName = Spotter;
+			productReference = C9ED2458243A2CC20098DFFF /* Spotter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
 		C9E2DB28243A0701002C1DF0 /* Project object */ = {
 			isa = PBXProject;
@@ -60,6 +252,9 @@
 				LastUpgradeCheck = 1140;
 				TargetAttributes = {
 					C9E2DB34243A087A002C1DF0 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					C9ED2457243A2CC20098DFFF = {
 						CreatedOnToolsVersion = 11.4;
 					};
 				};
@@ -73,13 +268,42 @@
 				Base,
 			);
 			mainGroup = C9E2DB27243A0701002C1DF0;
+			productRefGroup = C9ED2459243A2CC20098DFFF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C9E2DB34243A087A002C1DF0 /* Motion */,
+				C9ED2457243A2CC20098DFFF /* Spotter */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9ED2456243A2CC20098DFFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9ED245F243A2CC40098DFFF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9ED2454243A2CC20098DFFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */,
+				C9E32F0D243B4257000164AD /* ChatBluetoothInterface_ObjC.m in Sources */,
+				C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */,
+				C9E32EE5243A3425000164AD /* SpotterUI.cxx in Sources */,
+				C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */,
+				C9E32F0C243B4257000164AD /* ChatBluetoothInterface.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		C9E2DB2C243A0701002C1DF0 /* Debug */ = {
@@ -211,6 +435,147 @@
 			};
 			name = Release;
 		};
+		C9ED2468243A2CC40098DFFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Spotter/Spotter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BK4ST6N599;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/include";
+				INFOPLIST_FILE = Spotter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthiasm.Spotter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/include";
+			};
+			name = Debug;
+		};
+		C9ED2469243A2CC40098DFFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Spotter/Spotter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BK4ST6N599;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/include";
+				INFOPLIST_FILE = Spotter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthiasm.Spotter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/include";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -228,6 +593,15 @@
 			buildConfigurations = (
 				C9E2DB36243A087A002C1DF0 /* Debug */,
 				C9E2DB37243A087A002C1DF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9ED2467243A2CC40098DFFF /* Build configuration list for PBXNativeTarget "Spotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9ED2468243A2CC40098DFFF /* Debug */,
+				C9ED2469243A2CC40098DFFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
