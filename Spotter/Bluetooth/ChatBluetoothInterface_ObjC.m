@@ -131,6 +131,102 @@ exit:
     return returnValue;
 }
 
+
+- (void)sdpQueryComplete:(IOBluetoothDevice *)device status:(IOReturn)status {
+    NSLog(@"sdp query completed on device %@ [ %@ ]", device.addressString, device.name);
+    if (kIOReturnSuccess == status) {
+//        NSArray *channels = [self rfcommChannelsOfUUID:self.serviceUUID onDevice:device];
+//        if (channels.count > 0) {
+//            NSLog(@"service found here, channels: %@", [channels componentsJoinedByString:@", "]);
+//        }
+    } else {
+//        NSLog(@"  error = %x", status);
+    }
+}
+
+- (BOOL)connectToServer:(NSString *)address
+{
+    BOOL                                returnValue = FALSE;
+    IOBluetoothSDPUUID                    *chatServiceUUID;
+    IOBluetoothDevice                    *selectedDevice;
+    IOBluetoothSDPServiceRecord            *chatServiceRecord;
+    UInt8                                rfcommChannelID;
+    IOReturn                            status;
+    IOBluetoothRFCOMMChannel            *chan;
+
+    // Find a device based on its address
+    selectedDevice = [IOBluetoothDevice deviceWithAddressString:address];
+
+    chatServiceUUID = [IOBluetoothSDPUUID uuidWithBytes:gExampleChatServiceClassUUID length:16];
+    NSArray *serviceArray = @[ chatServiceUUID ];
+
+    [selectedDevice performSDPQuery:self uuids:[NSArray arrayWithObject:serviceArray]];
+
+    //[selectedDevice performSDPQuery:self uuids:[NSArray arrayWithObject:serviceArray]];
+    //[selectedDevice performSDPQuery:nil];
+
+    //[waitHandle wait];
+    //[waitHandle waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+
+    // Get the chat service record from the device the user has selected.
+    // We can assume that the device selector performed an SDP query, so we can
+    // just get the service record from the device's cache.
+    chatServiceRecord = [selectedDevice getServiceRecordForUUID:chatServiceUUID];
+
+    if ( chatServiceRecord == nil )
+    {
+        NSLog( @"Error - no chat service in selected device.  ***This should never happen.***\n" );
+        goto exit;
+    }
+
+    // To connect we need a device to connect and an RFCOMM channel ID to open on the device:
+    status = [chatServiceRecord getRFCOMMChannelID:&rfcommChannelID];
+
+    // Check to make sure the service record actually had an RFCOMM channel ID
+    if ( status != kIOReturnSuccess )
+    {
+        NSLog( @"Error: 0x%lx getting RFCOMM channel ID from service.\n", status );
+        goto exit;
+    }
+
+    // The service record contains all the useful information about the service the user selected
+    // Just for fun we log its name:
+    NSLog( @"Service selected '%@' - RFCOMM Channel ID = %d\n", [chatServiceRecord getServiceName], rfcommChannelID );
+
+    // Before we can open the RFCOMM channel, we need to open a connection to the device.
+    // The openRFCOMMChannel... API probably should do this for us, but for now we have to
+    // do it manually.
+    // This -openConnection call is synchronous, but there is also an asynchronous version -openConnection:
+    status = [selectedDevice openConnection];
+
+    if ( status != kIOReturnSuccess )
+    {
+        NSLog( @"Error: 0x%lx opening connection to device.\n", status );
+        goto exit;
+    }
+
+    // Open the RFCOMM channel on the new device connection
+    status = [selectedDevice openRFCOMMChannelSync:&chan withChannelID:rfcommChannelID delegate:self];
+    self->mRFCOMMChannel = chan;
+    if ( ( status == kIOReturnSuccess ) && ( mRFCOMMChannel != nil ) )
+    {
+        // And the return value is TRUE !!
+        returnValue = TRUE;
+    }
+    else
+    {
+        NSLog( @"Error: 0x%lx - unable to open RFCOMM channel.\n", status );
+        if (status == kIOReturnExclusiveAccess) {
+            NSLog(@"Exclusive Access!!!");
+        }
+    }
+
+exit:
+
+    return returnValue;
+}
+
+
 // Disconnection:
 // closes the channel:
 - (void)disconnectFromServer
@@ -210,6 +306,24 @@ exit:
     }
     
     return deviceName;
+}
+
+// Returns the mac address of the device we are connected to
+// returns nil if not connection:
+- (NSString *)remoteDeviceAddress
+{
+    NSString *deviceAddress = nil;
+
+    if ( mRFCOMMChannel != nil )
+    {
+        // Gets the device:
+        IOBluetoothDevice    *device = [mRFCOMMChannel getDevice];
+
+        // .. and its name:
+        deviceAddress = [device addressString];
+    }
+
+    return deviceAddress;
 }
 
 // Implementation of delegate calls (see IOBluetoothRFCOMMChannel.h) Only the basic ones:

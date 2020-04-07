@@ -8,5 +8,9 @@
 #ifndef Spotter_h
 #define Spotter_h
 
+class TBluetoothClient;
+
+
+extern TBluetoothClient *gBluetooth;
 
 #endif /* Spotter_h */

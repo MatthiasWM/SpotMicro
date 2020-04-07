@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9E32EE5243A3425000164AD /* SpotterUI.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C9E32EE3243A3425000164AD /* SpotterUI.cxx */; };
 		C9E32EEE243A35FF000164AD /* libfltk_images.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEC243A35F7000164AD /* libfltk_images.a */; };
 		C9E32EEF243A35FF000164AD /* libfltk_jpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EE9243A35F7000164AD /* libfltk_jpeg.a */; };
 		C9E32EF0243A35FF000164AD /* libfltk_png.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEA243A35F7000164AD /* libfltk_png.a */; };
@@ -16,13 +15,13 @@
 		C9E32EF4243A37A8000164AD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF3243A37A8000164AD /* CoreFoundation.framework */; };
 		C9E32EF6243A37B6000164AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF5243A37B6000164AD /* CoreGraphics.framework */; };
 		C9E32EF8243A37E3000164AD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF7243A37E3000164AD /* Cocoa.framework */; };
-		C9E32EFA243A39D8000164AD /* libbluetoothserialport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EF9243A39D3000164AD /* libbluetoothserialport.a */; };
 		C9E32EFE243A3B65000164AD /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EFD243A3B65000164AD /* IOBluetooth.framework */; };
 		C9E32F00243A561F000164AD /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EFF243A561F000164AD /* IOBluetoothUI.framework */; };
 		C9E32F0C243B4257000164AD /* ChatBluetoothInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F08243B4257000164AD /* ChatBluetoothInterface.m */; };
 		C9E32F0D243B4257000164AD /* ChatBluetoothInterface_ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F09243B4257000164AD /* ChatBluetoothInterface_ObjC.m */; };
 		C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F0A243B4257000164AD /* TBluetoothClient.mm */; };
 		C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F10243B4958000164AD /* ChatClientController.mm */; };
+		C9E32F15243B896D000164AD /* SpotterUI.fl in Sources */ = {isa = PBXBuildFile; fileRef = C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */; };
 		C9ED245F243A2CC40098DFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED245E243A2CC40098DFFF /* Assets.xcassets */; };
 		C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9ED246A243A2CFD0098DFFF /* Spotter.cpp */; };
 /* End PBXBuildFile section */
@@ -44,17 +43,6 @@
 			runOncePerArchitecture = 0;
 			script = "cd ${INPUT_FILE_DIR} && /Applications/Fluid.app/Contents/MacOS/Fluid -c ${INPUT_FILE_NAME}\n";
 		};
-		C9ED2473243A33720098DFFF /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 1;
-			outputFiles = (
-			);
-			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
-		};
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +50,6 @@
 		C9E2DB3C243A08C7002C1DF0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C9E2DB3D243A08C7002C1DF0 /* upload */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upload; sourceTree = "<group>"; };
 		C9E2DB3E243A08F1002C1DF0 /* Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Motion.h; sourceTree = "<group>"; };
-		C9E32EE3243A3425000164AD /* SpotterUI.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotterUI.cxx; sourceTree = "<group>"; };
-		C9E32EE4243A3425000164AD /* SpotterUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotterUI.h; sourceTree = "<group>"; };
 		C9E32EE7243A3508000164AD /* libfltk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk.a; path = ../../../../usr/local/lib/libfltk.a; sourceTree = "<group>"; };
 		C9E32EE9243A35F7000164AD /* libfltk_jpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk_jpeg.a; path = Spotter/lib/libfltk_jpeg.a; sourceTree = "<group>"; };
 		C9E32EEA243A35F7000164AD /* libfltk_png.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfltk_png.a; path = Spotter/lib/libfltk_png.a; sourceTree = "<group>"; };
@@ -73,7 +59,6 @@
 		C9E32EF3243A37A8000164AD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C9E32EF5243A37B6000164AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C9E32EF7243A37E3000164AD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		C9E32EF9243A39D3000164AD /* libbluetoothserialport.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbluetoothserialport.a; path = Spotter/lib/libbluetoothserialport.a; sourceTree = "<group>"; };
 		C9E32EFD243A3B65000164AD /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
 		C9E32EFF243A561F000164AD /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
 		C9E32F06243B4257000164AD /* ChatBluetoothInterface_ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBluetoothInterface_ObjC.h; sourceTree = "<group>"; };
@@ -103,7 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E32EFA243A39D8000164AD /* libbluetoothserialport.a in Frameworks */,
 				C9E32EF8243A37E3000164AD /* Cocoa.framework in Frameworks */,
 				C9E32EEF243A35FF000164AD /* libfltk_jpeg.a in Frameworks */,
 				C9E32EEE243A35FF000164AD /* libfltk_images.a in Frameworks */,
@@ -151,7 +135,6 @@
 			children = (
 				C9E32EFF243A561F000164AD /* IOBluetoothUI.framework */,
 				C9E32EFD243A3B65000164AD /* IOBluetooth.framework */,
-				C9E32EF9243A39D3000164AD /* libbluetoothserialport.a */,
 				C9E32EF7243A37E3000164AD /* Cocoa.framework */,
 				C9E32EF5243A37B6000164AD /* CoreGraphics.framework */,
 				C9E32EF3243A37A8000164AD /* CoreFoundation.framework */,
@@ -180,6 +163,16 @@
 			path = Bluetooth;
 			sourceTree = "<group>";
 		};
+		C9E32F16243BD87F000164AD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED245E243A2CC40098DFFF /* Assets.xcassets */,
+				C9ED2463243A2CC40098DFFF /* Info.plist */,
+				C9ED2466243A2CC40098DFFF /* Spotter.entitlements */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		C9ED2459243A2CC20098DFFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,15 +184,11 @@
 		C9ED245A243A2CC20098DFFF /* Spotter */ = {
 			isa = PBXGroup;
 			children = (
-				C9ED245E243A2CC40098DFFF /* Assets.xcassets */,
-				C9ED2463243A2CC40098DFFF /* Info.plist */,
-				C9ED2466243A2CC40098DFFF /* Spotter.entitlements */,
 				C9ED246A243A2CFD0098DFFF /* Spotter.cpp */,
 				C9ED246B243A2CFD0098DFFF /* Spotter.h */,
 				C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */,
-				C9E32EE3243A3425000164AD /* SpotterUI.cxx */,
-				C9E32EE4243A3425000164AD /* SpotterUI.h */,
 				C9E32F05243B4257000164AD /* Bluetooth */,
+				C9E32F16243BD87F000164AD /* Assets */,
 			);
 			path = Spotter;
 			sourceTree = "<group>";
@@ -233,7 +222,6 @@
 				C9ED2456243A2CC20098DFFF /* Resources */,
 			);
 			buildRules = (
-				C9ED2473243A33720098DFFF /* PBXBuildRule */,
 				C9ED246F243A2F300098DFFF /* PBXBuildRule */,
 			);
 			dependencies = (
@@ -294,10 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E32F15243B896D000164AD /* SpotterUI.fl in Sources */,
 				C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */,
 				C9E32F0D243B4257000164AD /* ChatBluetoothInterface_ObjC.m in Sources */,
 				C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */,
-				C9E32EE5243A3425000164AD /* SpotterUI.cxx in Sources */,
 				C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */,
 				C9E32F0C243B4257000164AD /* ChatBluetoothInterface.m in Sources */,
 			);

@@ -47,17 +47,12 @@
 
 @interface ChatClientController : NSObject
 {
-    // UI object variables:
-    IBOutlet id chatConnectButton;
-    IBOutlet id chatDisconnectButton;
-    IBOutlet id chatInputTextField;
-    IBOutlet id chatOutputTextField;
-    
     // Bluetooth interface:
     id myBluetoothInterface;
     
     // Remembers the local device name (so we can show a nice "prompt");
     NSString *localDeviceName;
+    NSString *localDeviceAddress;
 
     std::function<void()> mOnDisconnect;
     std::function<void(uint8_t *data, size_t size)> mOnNewData;
@@ -65,15 +60,10 @@
 
 - init;
 - (void) dealloc;
-- (BOOL) windowShouldClose: (NSWindow*) sender;
-
-// UI Handlers.
-- (IBAction)chatActionOnConnect:(id)sender;
-- (IBAction)chatActionOnDisconnect:(id)sender;
-- (IBAction)chatActionOnMessageTextField:(id)sender;
 
 // C++ UI Handlers.
 - (int)cppActionOnConnect;
+- (int)cppActionOnConnect:(const char*)address;
 - (void)cppActionOnDisconnect;
 - (void)cppActionSend:(const char*)txt;
 
@@ -86,6 +76,7 @@
 - (void)setOnDisconnect:(std::function<void()>)callback;
 - (void)setOnNewData:(std::function<void(uint8_t *data, size_t size)>)callback;
 
+- (NSString*)getDeviceAddress;
 
 @end
 

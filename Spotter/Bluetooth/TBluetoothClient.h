@@ -49,9 +49,11 @@ public:
     void OnDisconnect(std::function<void()> inOnDisconnect);
     void OnNewData(std::function<void(uint8_t *data, size_t size)> inOnDisconnect);
     int Connect();
+    int Connect(const char *inAddress);
     void Disconnect();
     void Send(const char *txt);
     void SendF(const char *fmt, ...);
+    char *GetAddress();
 private:
     id mChatClient = nil;
 };

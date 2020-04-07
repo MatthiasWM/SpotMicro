@@ -57,6 +57,10 @@
 // returns TRUE if the connection was successful:
 - (BOOL)connectToServer;
 
+// Connection Method:
+// returns TRUE if the connection was successful:
+- (BOOL)connectToServer:(NSString *)address;
+
 // Disconnection:
 // closes the channel:
 - (void)disconnectFromServer;
@@ -64,6 +68,10 @@
 // Returns the name of the device we are connected to
 // returns nil if not connection:
 - (NSString *)remoteDeviceName;
+
+// Returns the mac address of the device we are connected to
+// returns nil if not connection:
+- (NSString *)remoteDeviceAddress;
 
 // Send Data method
 // returns TRUE if all the data was sent:

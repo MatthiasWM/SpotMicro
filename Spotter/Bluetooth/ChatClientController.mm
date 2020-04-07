@@ -66,6 +66,7 @@
 - (void) dealloc
 {
     localDeviceName = nil;
+    localDeviceAddress = nil;
     myBluetoothInterface = nil;
 }
 
@@ -78,24 +79,6 @@
     return TRUE;
 }
 
-// UI Handlers.
-- (IBAction)chatActionOnConnect:(id)sender
-{
-    if ([myBluetoothInterface connectToServer] == FALSE)
-    {
-        NSBeep();
-        
-        [self chatHandleRemoteDisconnection];
-    }
-    else
-    {
-        [chatDisconnectButton setEnabled:TRUE];
-        [chatConnectButton setEnabled:FALSE];
-        [chatInputTextField setEnabled:TRUE];
-        [myBluetoothInterface registerForNewData:self action:@selector(chatHandleNewData:)];
-    }
-}
-
 - (int)cppActionOnConnect
 {
     if ([myBluetoothInterface connectToServer] == FALSE)
@@ -106,53 +89,33 @@
     }
     else
     {
-//        [chatDisconnectButton setEnabled:TRUE];
-//        [chatConnectButton setEnabled:FALSE];
-//        [chatInputTextField setEnabled:TRUE];
         [myBluetoothInterface registerForNewData:self action:@selector(chatHandleNewData:)];
     }
     return 0;
 }
 
 
-- (IBAction)chatActionOnDisconnect:(id)sender
+- (int)cppActionOnConnect:(const char*)address
 {
-    [myBluetoothInterface disconnectFromServer];
-    [self chatHandleRemoteDisconnection];
+    if ([myBluetoothInterface connectToServer:[NSString stringWithUTF8String:address]] == FALSE)
+    {
+        NSBeep();
+        [self chatHandleRemoteDisconnection];
+        return -1;
+    }
+    else
+    {
+        [myBluetoothInterface registerForNewData:self action:@selector(chatHandleNewData:)];
+    }
+    return 0;
 }
+
 
 - (void)cppActionOnDisconnect
 {
     [myBluetoothInterface disconnectFromServer];
     [self chatHandleRemoteDisconnection];
 }
-
-- (IBAction)chatActionOnMessageTextField:(id)sender
-{
-    NSRange      theRange;
-    unsigned int start;
-    NSMutableString    *theString;
-
-    // Send the message trough the bluetooth channel:
-    theString = [NSMutableString stringWithFormat:@"%@\r",[chatInputTextField stringValue]];
-    
-    [myBluetoothInterface sendData:(void*)[theString UTF8String] length:[theString length]];
-
-    // Send the message trough the bluetooth channel:
-    theString = [NSMutableString stringWithFormat:@"%@: %@",localDeviceName , theString];
-
-    // Dump it on the screen
-    start = [[chatOutputTextField string] length];
-    theRange = NSMakeRange(start, 0 );
-    
-    [chatOutputTextField replaceCharactersInRange:theRange withString:theString];
-    theRange = NSMakeRange(start, [theString length] );
-    [chatOutputTextField setTextColor:[NSColor blueColor] range:theRange];
-    
-    // Clears the input text field:
-    [chatInputTextField setStringValue:@""];
-}
-
 
 - (void)cppActionSend:(const char*)txt
 {
@@ -164,10 +127,6 @@
 // Bluetooth Handlers
 - (void)chatHandleRemoteDisconnection
 {
-    [chatDisconnectButton setEnabled:FALSE];
-    [chatConnectButton setEnabled:TRUE];
-    [chatInputTextField setEnabled:FALSE];
-
     if (mOnDisconnect)
         mOnDisconnect();
     
@@ -176,31 +135,12 @@
 
 - (void)chatHandleNewData:(NSData*)dataObject
 {
-    NSRange      theRange;
-    unsigned int start;
-    NSString    *theString;
-    
-    // Dump the message on the screen
-    start = [[chatOutputTextField string] length];
-    theRange = NSMakeRange(start, 0 );
-//    NSLog(@"GOT DATA: %d", dataObject.length);
-    theString = [NSMutableString stringWithFormat:@"%@: %@",
-                 [myBluetoothInterface remoteDeviceName] ,
-                 [[NSString alloc] initWithBytes:[dataObject bytes]
-                                          length:[dataObject length]
-                                        encoding:NSUTF8StringEncoding]
-                 ];
-
     if (mOnNewData) {
         size_t size = [dataObject length];
         uint8_t *data = (uint8_t*)::malloc(size);
         ::memcpy(data, [dataObject bytes], size);
         mOnNewData(data, size);
     }
-    
-    [chatOutputTextField replaceCharactersInRange:theRange withString:theString];
-    theRange = NSMakeRange(start, [theString length] );
-    [chatOutputTextField setTextColor:[NSColor redColor] range:theRange];
 }
 
 - (void)setOnDisconnect:(std::function<void()>)callback
@@ -213,6 +153,10 @@
     mOnNewData = callback;
 }
 
+- (NSString*)getDeviceAddress
+{
+    return [myBluetoothInterface remoteDeviceAddress];
+}
 
 @end
 

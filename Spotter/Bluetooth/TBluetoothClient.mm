@@ -69,3 +69,23 @@ void TBluetoothClient::SendF(const char *fmt, ...)
 }
 
 
+int TBluetoothClient::Connect(const char *inAddress)
+{
+    int ret = [mChatClient cppActionOnConnect:inAddress];
+    return ret;
+}
+
+
+char *TBluetoothClient::GetAddress()
+{
+    NSString *dAddr = [mChatClient getDeviceAddress];
+    if (dAddr) {
+        char *str = strdup( [dAddr UTF8String] );
+        return str;
+    } else {
+        return nullptr;
+    }
+}
+
+
+
