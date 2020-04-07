@@ -9,4 +9,7 @@
 #define Motion_hpp
 
 
+extern class TMonitor Monitor;
+
+
 #endif /* Motion_hpp */

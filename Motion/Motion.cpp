@@ -1,68 +1,72 @@
 
 #include "SpotPWM.h"
 #include "SpotScreen.h"
+#include "TMonitor.h"
+#include "TServo.h"
 
 // servo angels in us: 1000=-45deg, 1500=0deg, 2000=+45deg
 
 volatile int adc[16] = { 0 };
 volatile int currentAdc = 8;
 
-int gCurrentServo = 0;
+//int gCurrentServo = 0;
 
-class SpServo {
-public:
-    SpServo(uint8_t ix) : pwmIx{ix} {}
-    void UpdatePWM() {
-        // send a command only if something changed
-        bool mustUpdate = false;
-        if (isOn!=wasOn) {
-            wasOn = isOn;
-            mustUpdate = true;
-        }
-        if (isOn) {
-            if (isAt!=wasAt) {
-                wasAt = isAt;
-                mustUpdate = true;
-            }
-            if (mustUpdate) {
-                setServoUSec(pwmIx, isAt);
-                Serial.print("Servo set: ");
-                Serial.print(pwmIx);
-                Serial.print(", ");
-                Serial.println(isAt);
-            }
-        } else {
-            if (mustUpdate) {
-                pwm.setPWM(pwmIx, 0, 0);
-                Serial.print("Servo off: ");
-                Serial.println(pwmIx);
-            }
-        }
-    }
-    void SetPower(bool on) { isOn = on; }
-    void SetPosition(int pos) { isAt = pos; }
-    int GetPosition() { return isAt; }
-    bool isOn = false;
-    bool wasOn = true;
-    int isAt = 1500;
-    int wasAt = 1499;
-    uint8_t pwmIx = 255;
-};
+TMonitor Monitor;
 
-SpServo gServoList[] {
-    // teh numbers correspond to the PWM output channel in hardware
-    SpServo( 3), SpServo( 2), SpServo( 1),     // front right leg
-    SpServo( 7), SpServo( 6), SpServo( 5),     // front left leg
-    SpServo(11), SpServo(10), SpServo( 9),     // hind right leg
-    SpServo(15), SpServo(14), SpServo(13),     // hind left leg
-};
-int gNServoList = sizeof(gServoList) / sizeof(gServoList[0]);
+//class SpServo {
+//public:
+//    SpServo(uint8_t ix) : pwmIx{ix} {}
+//    void UpdatePWM() {
+//        // send a command only if something changed
+//        bool mustUpdate = false;
+//        if (isOn!=wasOn) {
+//            wasOn = isOn;
+//            mustUpdate = true;
+//        }
+//        if (isOn) {
+//            if (isAt!=wasAt) {
+//                wasAt = isAt;
+//                mustUpdate = true;
+//            }
+//            if (mustUpdate) {
+//                setServoUSec(pwmIx, isAt);
+//                Serial.print("Servo set: ");
+//                Serial.print(pwmIx);
+//                Serial.print(", ");
+//                Serial.println(isAt);
+//            }
+//        } else {
+//            if (mustUpdate) {
+//                pwm.setPWM(pwmIx, 0, 0);
+//                Serial.print("Servo off: ");
+//                Serial.println(pwmIx);
+//            }
+//        }
+//    }
+//    void SetPower(bool on) { isOn = on; }
+//    void SetPosition(int pos) { isAt = pos; }
+//    int GetPosition() { return isAt; }
+//    bool isOn = false;
+//    bool wasOn = true;
+//    int isAt = 1500;
+//    int wasAt = 1499;
+//    uint8_t pwmIx = 255;
+//};
+//
+//SpServo gServoList[] {
+//    // teh numbers correspond to the PWM output channel in hardware
+//    SpServo( 3), SpServo( 2), SpServo( 1),     // front right leg
+//    SpServo( 7), SpServo( 6), SpServo( 5),     // front left leg
+//    SpServo(11), SpServo(10), SpServo( 9),     // hind right leg
+//    SpServo(15), SpServo(14), SpServo(13),     // hind left leg
+//};
+//int gNServoList = sizeof(gServoList) / sizeof(gServoList[0]);
 
 
 void updateServos()
 {
-    for (int i=0; i<gNServoList; i++)
-        gServoList[i].UpdatePWM();
+    for (int i=0; i<NServo; i++)
+        Servo[i].UpdatePWM();
 }
 
 
@@ -90,17 +94,13 @@ void setup(void)
     //ADMUX = bit (REFS0) | (adcPin & 0x07);
 
     Serial.begin(9600);
-    Serial1.begin(115200);
-    Serial1.print("\nboot\n");
+    Monitor.Setup();
     ComposeTrimScreen();
     setupScreen();
 
-    setupPWM();
-    delay(10);
-    // pwm.setPWM(0, 4096, 0); // Port all on
+    TServo::Setup();
 
     updateServos();
-    pwm.setPWM(0, 0, 2048); // just some constant output that we can read back in through A12/INT23 to verify that the PWM module is still running
     digitalWrite(22, 0); // 0 enables PWM, 1 disables it
 
     pinMode(LED_BUILTIN, OUTPUT);
@@ -173,44 +173,8 @@ int sPos = 1500;
 void loop(void)
 {
 #if 1
-    while (Serial1.available()) {
-        int s = Serial1.read();
-        //Serial.write(s);
-        if (s=='\n') {
-            serBuf[serBufN] = 0;
-            //Serial.println(serBuf);
-            if (serBuf[0]=='s') { // slider
-                int m = serBuf[1]-'a';
-                int v = atoi(serBuf+2);
-                gServoList[m].SetPosition(v);
-            } else if (serBuf[0]=='C') { // Set the current motor
-                int m = serBuf[1]-'a';
-                gCurrentServo = m;
-                Serial1.print('s');
-                Serial1.print((char)('a'+m));
-                Serial1.print(gServoList[m].GetPosition());
-                Serial1.print('\n');
-            } else if (serBuf[0]=='M') { // Motor Power (Mxy; x = aIndex, y=0 or 1)
-                int m = serBuf[1]-'a';
-                bool on = (serBuf[2]=='1');
-                gServoList[m].SetPower(on);
-            } else if (strcmp(serBuf, "beep")==0) { // activate nothing
-                tone(45, 2000, 50);
-                Serial.println("->beep");
-            } else if (strcmp(serBuf, "a0")==0) { // activate nothing
-                Serial1.println("*T(off)*");
-                Serial.println("->a0");
-            } else if (strcmp(serBuf, "afra")==0) { // activate front right ankle
-                Serial1.println("*TL F Ankle*");
-                Serial.println("->afra");
-            }
-            serBufN = 0;
-        } else if (serBufN<serBufMax) {
-            serBuf[serBufN++] = s;
-        } else {
-            // cmd buffer overflow
-        }
-    }
+    if (Serial1.available())
+        Monitor.OnDataIn();
     auto now = millis();
     if (now>analogWriteTimer) {
         analogWriteTimer = now + 20;

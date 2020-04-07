@@ -7,13 +7,16 @@ trap 'pkill -P $$' EXIT
 /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude \
     -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf \
     -q -q -patmega2560 \
-    -cwiring -P/dev/cu.usbmodem141101 -b115200 \
+    -cwiring -P/dev/cu.usbmodem145101 -b115200 \
     -D \
-    -Uflash:w:/Users/matt/dev/Spot/Motion/build/Motion.cpp.hex:i
+    -Uflash:w:/Users/matt/dev/Spot/Motion/build/empty.ino.hex:i
+
+## shoudl probably be this. but it's not working for me:
+# arduino-cli upload --fqbn arduino:avr:mega:cpu=atmega2560 --port /dev/cu.usbmodem145101
 
 # Conenct via serail port, so we can see the log output
 #  a: this runs only at 9600bps because socat on macOS is proken (brew and port)
 #  b: this does not work for sending serial data to the MCU (but we could
 #     also just start another app here)
-/opt/local/bin/socat open:/dev/cu.usbmodem141101 stdio
+/opt/local/bin/socat open:/dev/cu.usbmodem145101 stdio
 

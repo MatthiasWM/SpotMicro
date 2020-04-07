@@ -28,140 +28,148 @@ Function {CreateMainWindow()} {open
       callback {gBluetooth->Send("beep\\n");}
       xywh {116 48 88 28}
     }
-    Fl_Value_Slider wServoSlider {
-      label s
-      callback SendServoPosCB selected
-      xywh {144 318 28 296} minimum 500 maximum 2500 step 1 value 1500
-    }
     Fl_Button wConnectAgain {
       label Again
       callback ConnectSameBT
       xywh {116 10 88 28}
-    }
-    Fl_Check_Button {wMotorOn[5]} {
-      user_data 5 user_data_type long
-      callback MotorOnCB
-      xywh {16 114 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[4]} {
-      user_data 4 user_data_type long
-      callback MotorOnCB
-      xywh {16 138 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[3]} {
-      user_data 3 user_data_type long
-      callback MotorOnCB
-      xywh {16 162 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[0]} {
-      user_data 0 user_data_type long
-      callback MotorOnCB
-      xywh {16 218 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[1]} {
-      user_data 1 user_data_type long
-      callback MotorOnCB
-      xywh {16 242 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[2]} {
-      user_data 2 user_data_type long
-      callback MotorOnCB
-      xywh {16 266 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[11]} {
-      user_data 11 user_data_type long
-      callback MotorOnCB
-      xywh {280 114 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[10]} {
-      user_data 10 user_data_type long
-      callback MotorOnCB
-      xywh {280 138 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[9]} {
-      user_data 9 user_data_type long
-      callback MotorOnCB
-      xywh {280 162 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[6]} {
-      user_data 6 user_data_type long
-      callback MotorOnCB
-      xywh {280 218 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[7]} {
-      user_data 7 user_data_type long
-      callback MotorOnCB
-      xywh {280 242 24 24} down_box DOWN_BOX labelsize 20
-    }
-    Fl_Check_Button {wMotorOn[8]} {
-      user_data 8 user_data_type long
-      callback MotorOnCB
-      xywh {280 266 24 24} down_box DOWN_BOX labelsize 20
     }
     Fl_Button wAllPower {
       label {!}
       callback AllPowerCB
       xywh {236 44 60 60} box ROUND_UP_BOX down_box ROUND_DOWN_BOX selection_color 207 labelfont 9 labelsize 44
     }
-    Fl_Round_Button {wCurrentMotor[5]} {
-      user_data 5 user_data_type long
-      callback CurrentMotorCB
-      xywh {40 114 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[4]} {
-      user_data 4 user_data_type long
-      callback CurrentMotorCB
-      xywh {40 138 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[3]} {
-      user_data 3 user_data_type long
-      callback CurrentMotorCB
-      xywh {40 162 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[0]} {
-      user_data 0 user_data_type long
-      callback CurrentMotorCB
-      xywh {40 218 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[1]} {
-      user_data 1 user_data_type long
-      callback CurrentMotorCB
-      xywh {40 242 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[2]} {
-      user_data 2 user_data_type long
-      callback CurrentMotorCB
-      xywh {40 266 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[11]} {
-      user_data 11 user_data_type long
-      callback CurrentMotorCB
-      xywh {256 114 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[10]} {
-      user_data 10 user_data_type long
-      callback CurrentMotorCB
-      xywh {256 138 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[9]} {
-      user_data 9 user_data_type long
-      callback CurrentMotorCB
-      xywh {256 162 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[6]} {
-      user_data 6 user_data_type long
-      callback CurrentMotorCB
-      xywh {256 218 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[7]} {
-      user_data 7 user_data_type long
-      callback CurrentMotorCB
-      xywh {256 242 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
-    }
-    Fl_Round_Button {wCurrentMotor[8]} {
-      user_data 8 user_data_type long
-      callback CurrentMotorCB
-      xywh {256 266 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+    Fl_Tabs {} {open
+      xywh {0 108 320 534}
+    } {
+      Fl_Group {} {
+        label Trim open
+        xywh {0 132 320 510}
+      } {
+        Fl_Value_Slider wServoSlider {
+          label s
+          callback SendServoPosCB selected
+          xywh {40 338 28 278} minimum 1000 maximum 2000 step 1 value 1500
+        }
+        Fl_Check_Button {wMotorOn[5]} {
+          user_data 5 user_data_type long
+          callback MotorOnCB
+          xywh {16 142 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[4]} {
+          user_data 4 user_data_type long
+          callback MotorOnCB
+          xywh {16 166 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[3]} {
+          user_data 3 user_data_type long
+          callback MotorOnCB
+          xywh {16 190 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[0]} {
+          user_data 0 user_data_type long
+          callback MotorOnCB
+          xywh {16 246 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[1]} {
+          user_data 1 user_data_type long
+          callback MotorOnCB
+          xywh {16 270 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[2]} {
+          user_data 2 user_data_type long
+          callback MotorOnCB
+          xywh {16 294 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[11]} {
+          user_data 11 user_data_type long
+          callback MotorOnCB
+          xywh {280 142 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[10]} {
+          user_data 10 user_data_type long
+          callback MotorOnCB
+          xywh {280 166 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[9]} {
+          user_data 9 user_data_type long
+          callback MotorOnCB
+          xywh {280 190 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[6]} {
+          user_data 6 user_data_type long
+          callback MotorOnCB
+          xywh {280 246 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[7]} {
+          user_data 7 user_data_type long
+          callback MotorOnCB
+          xywh {280 270 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wMotorOn[8]} {
+          user_data 8 user_data_type long
+          callback MotorOnCB
+          xywh {280 294 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[5]} {
+          user_data 5 user_data_type long
+          callback CurrentMotorCB
+          xywh {40 142 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[4]} {
+          user_data 4 user_data_type long
+          callback CurrentMotorCB
+          xywh {40 166 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[3]} {
+          user_data 3 user_data_type long
+          callback CurrentMotorCB
+          xywh {40 190 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[0]} {
+          user_data 0 user_data_type long
+          callback CurrentMotorCB
+          xywh {40 246 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[1]} {
+          user_data 1 user_data_type long
+          callback CurrentMotorCB
+          xywh {40 270 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[2]} {
+          user_data 2 user_data_type long
+          callback CurrentMotorCB
+          xywh {40 294 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[11]} {user_data_type long
+          callback CurrentMotorCB
+          xywh {256 142 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[10]} {
+          user_data 10 user_data_type long
+          callback CurrentMotorCB
+          xywh {256 166 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[9]} {
+          user_data 9 user_data_type long
+          callback CurrentMotorCB
+          xywh {256 190 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[6]} {
+          user_data 6 user_data_type long
+          callback CurrentMotorCB
+          xywh {256 246 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[7]} {
+          user_data 7 user_data_type long
+          callback CurrentMotorCB
+          xywh {256 270 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wCurrentMotor[8]} {
+          user_data 8 user_data_type long
+          callback CurrentMotorCB
+          xywh {256 294 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+      }
     }
   }
 }

@@ -5,12 +5,11 @@
 //  Created by Matthias Melcher on 4/5/20.
 //
 
-#ifndef Spotter_h
-#define Spotter_h
-
-class TBluetoothClient;
+#ifndef SPOTTER_H
+#define SPOTTER_H
 
 
-extern TBluetoothClient *gBluetooth;
+extern class TBluetoothClient *gBluetooth;
+extern class TMonitor Monitor;
 
-#endif /* Spotter_h */
+#endif /* SPOTTER_H */

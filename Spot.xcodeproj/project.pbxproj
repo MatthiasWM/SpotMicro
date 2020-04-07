@@ -22,6 +22,9 @@
 		C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F0A243B4257000164AD /* TBluetoothClient.mm */; };
 		C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F10243B4958000164AD /* ChatClientController.mm */; };
 		C9E32F15243B896D000164AD /* SpotterUI.fl in Sources */ = {isa = PBXBuildFile; fileRef = C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */; };
+		C9E32F1C243CAE9F000164AD /* TMonitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F18243CAE9F000164AD /* TMonitor.cpp */; };
+		C9E32F1D243CAE9F000164AD /* TTrimPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F1B243CAE9F000164AD /* TTrimPanel.cpp */; };
+		C9E32F20243CB2F5000164AD /* TMainPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9E32F1F243CB2F5000164AD /* TMainPanel.cpp */; };
 		C9ED245F243A2CC40098DFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED245E243A2CC40098DFFF /* Assets.xcassets */; };
 		C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9ED246A243A2CFD0098DFFF /* Spotter.cpp */; };
 /* End PBXBuildFile section */
@@ -69,6 +72,16 @@
 		C9E32F0B243B4257000164AD /* ChatBluetoothInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBluetoothInterface.h; sourceTree = "<group>"; };
 		C9E32F0F243B4958000164AD /* ChatClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClientController.h; sourceTree = "<group>"; };
 		C9E32F10243B4958000164AD /* ChatClientController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChatClientController.mm; sourceTree = "<group>"; };
+		C9E32F18243CAE9F000164AD /* TMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMonitor.cpp; sourceTree = "<group>"; };
+		C9E32F19243CAE9F000164AD /* TMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMonitor.h; sourceTree = "<group>"; };
+		C9E32F1A243CAE9F000164AD /* TTrimPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTrimPanel.h; sourceTree = "<group>"; };
+		C9E32F1B243CAE9F000164AD /* TTrimPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTrimPanel.cpp; sourceTree = "<group>"; };
+		C9E32F1E243CB2F5000164AD /* TMainPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainPanel.h; sourceTree = "<group>"; };
+		C9E32F1F243CB2F5000164AD /* TMainPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMainPanel.cpp; sourceTree = "<group>"; };
+		C9E32F21243CF948000164AD /* TMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMonitor.h; sourceTree = "<group>"; };
+		C9E32F22243CF948000164AD /* TMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMonitor.cpp; sourceTree = "<group>"; };
+		C9E32F23243D000B000164AD /* TServo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TServo.cpp; sourceTree = "<group>"; };
+		C9E32F24243D000B000164AD /* TServo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TServo.h; sourceTree = "<group>"; };
 		C9ED244F243A21210098DFFF /* SpotScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotScreen.cpp; sourceTree = "<group>"; };
 		C9ED2450243A21210098DFFF /* SpotScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotScreen.h; sourceTree = "<group>"; };
 		C9ED2451243A21210098DFFF /* SpotPWM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotPWM.cpp; sourceTree = "<group>"; };
@@ -120,6 +133,10 @@
 				C9ED2452243A21210098DFFF /* README.md */,
 				C9E2DB3A243A08C7002C1DF0 /* Motion.cpp */,
 				C9E2DB3E243A08F1002C1DF0 /* Motion.h */,
+				C9E32F22243CF948000164AD /* TMonitor.cpp */,
+				C9E32F21243CF948000164AD /* TMonitor.h */,
+				C9E32F23243D000B000164AD /* TServo.cpp */,
+				C9E32F24243D000B000164AD /* TServo.h */,
 				C9ED2451243A21210098DFFF /* SpotPWM.cpp */,
 				C9ED2453243A21210098DFFF /* SpotPWM.h */,
 				C9ED244F243A21210098DFFF /* SpotScreen.cpp */,
@@ -173,6 +190,19 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		C9E32F17243CAE40000164AD /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				C9E32F18243CAE9F000164AD /* TMonitor.cpp */,
+				C9E32F19243CAE9F000164AD /* TMonitor.h */,
+				C9E32F1F243CB2F5000164AD /* TMainPanel.cpp */,
+				C9E32F1E243CB2F5000164AD /* TMainPanel.h */,
+				C9E32F1B243CAE9F000164AD /* TTrimPanel.cpp */,
+				C9E32F1A243CAE9F000164AD /* TTrimPanel.h */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
 		C9ED2459243A2CC20098DFFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +217,7 @@
 				C9ED246A243A2CFD0098DFFF /* Spotter.cpp */,
 				C9ED246B243A2CFD0098DFFF /* Spotter.h */,
 				C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */,
+				C9E32F17243CAE40000164AD /* Panels */,
 				C9E32F05243B4257000164AD /* Bluetooth */,
 				C9E32F16243BD87F000164AD /* Assets */,
 			);
@@ -282,12 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E32F1C243CAE9F000164AD /* TMonitor.cpp in Sources */,
 				C9E32F15243B896D000164AD /* SpotterUI.fl in Sources */,
 				C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */,
 				C9E32F0D243B4257000164AD /* ChatBluetoothInterface_ObjC.m in Sources */,
 				C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */,
 				C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */,
 				C9E32F0C243B4257000164AD /* ChatBluetoothInterface.m in Sources */,
+				C9E32F20243CB2F5000164AD /* TMainPanel.cpp in Sources */,
+				C9E32F1D243CAE9F000164AD /* TTrimPanel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +513,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/include";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Spotter",
+					"$(PROJECT_DIR)/Spotter/include",
+				);
 				INFOPLIST_FILE = Spotter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,7 +584,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Spotter/include";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Spotter",
+					"$(PROJECT_DIR)/Spotter/include",
+				);
 				INFOPLIST_FILE = Spotter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
