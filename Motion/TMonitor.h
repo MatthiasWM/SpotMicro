@@ -32,6 +32,7 @@ protected:
     static void HandleActionServoDataRequest(const char *);
     static void HandleActionServoPositionRaw(const char *);
     static void HandleActionServoPower(const char *);
+    static void HandleActionServoTrim(const char *);
     static void HandleActionBeep(const char *);
 
     static TMonitorAction mAction[];

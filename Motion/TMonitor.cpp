@@ -18,6 +18,7 @@ TMonitorAction TMonitor::mAction[]
     { "M",      TMonitor::HandleActionServoPower }, // servoID, on/off
     { "beep",   TMonitor::HandleActionBeep }, // nothing
     { "s",      TMonitor::HandleActionServoPositionRaw }, // servoID, rawPosition
+    { "trim",   TMonitor::HandleActionServoTrim }, // servoID, u-45, u0, u45
 };
 
 int TMonitor::mNActionList = sizeof(mAction)/sizeof(mAction[0]);
@@ -41,10 +42,36 @@ void TMonitor::HandleActionBeep(const char*)
 void TMonitor::HandleActionServoDataRequest(const char *args)
 {
     int m = args[0]-'a';
+    TServo &s = Servo[m];
     Serial1.print("s:");
     Serial1.print((char)('a'+m));
-    Serial1.print(Servo[m].GetPosition());
+    Serial1.print(s.GetPosition());
+    Serial1.print(',');
+    Serial1.print(s.GetTrimN45());
+    Serial1.print(',');
+    Serial1.print(s.GetTrim0());
+    Serial1.print(',');
+    Serial1.print(s.GetTrim45());
     Serial1.print('\n');
+}
+
+
+void TMonitor::HandleActionServoTrim(const char *args)
+{
+    uint8_t m = args[0]-'a';
+    uint16_t a = 1000, b = 1500, c = 2000;
+    const char *comma = args;
+    a = atoi(comma+1);
+    comma = strchr(comma+1, ',');
+    if (comma) {
+        b = atoi(comma+1);
+        comma = strchr(comma+1, ',');
+        if (comma) {
+            c = atoi(comma+1);
+        }
+    }
+    Servo[m].SetTrim(a, b, c);
+    Servo[m].SaveTrim();
 }
 
 

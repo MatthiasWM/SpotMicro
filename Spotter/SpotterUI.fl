@@ -42,132 +42,249 @@ Function {CreateMainWindow()} {open
       xywh {0 108 320 534}
     } {
       Fl_Group {} {
-        label Trim open
-        xywh {0 132 320 510}
+        label Trim open selected
+        xywh {0 130 320 510}
       } {
-        Fl_Value_Slider wServoSlider {
-          label s
-          callback SendServoPosCB selected
-          xywh {40 338 28 278} minimum 1000 maximum 2000 step 1 value 1500
+        Fl_Value_Slider wTrimPanel_ServoSlider {
+          callback TTrimPanel_ServoRawPositionAction
+          xywh {40 336 28 278} minimum 2500 maximum 500 step 1 value 1500
         }
         Fl_Check_Button {wMotorOn[5]} {
           user_data 5 user_data_type long
-          callback MotorOnCB
-          xywh {16 142 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {16 140 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[4]} {
           user_data 4 user_data_type long
-          callback MotorOnCB
-          xywh {16 166 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {16 164 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[3]} {
           user_data 3 user_data_type long
-          callback MotorOnCB
-          xywh {16 190 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {16 188 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[0]} {
           user_data 0 user_data_type long
-          callback MotorOnCB
-          xywh {16 246 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {16 244 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[1]} {
           user_data 1 user_data_type long
-          callback MotorOnCB
-          xywh {16 270 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {16 268 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[2]} {
           user_data 2 user_data_type long
-          callback MotorOnCB
-          xywh {16 294 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {16 292 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[11]} {
           user_data 11 user_data_type long
-          callback MotorOnCB
-          xywh {280 142 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {280 140 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[10]} {
           user_data 10 user_data_type long
-          callback MotorOnCB
-          xywh {280 166 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {280 164 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[9]} {
           user_data 9 user_data_type long
-          callback MotorOnCB
-          xywh {280 190 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {280 188 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[6]} {
           user_data 6 user_data_type long
-          callback MotorOnCB
-          xywh {280 246 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {280 244 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[7]} {
           user_data 7 user_data_type long
-          callback MotorOnCB
-          xywh {280 270 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {280 268 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Check_Button {wMotorOn[8]} {
           user_data 8 user_data_type long
-          callback MotorOnCB
-          xywh {280 294 24 24} down_box DOWN_BOX labelsize 20
+          callback TTrimPanel_ServoPowerAction
+          xywh {280 292 24 24} down_box DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[5]} {
           user_data 5 user_data_type long
-          callback CurrentMotorCB
-          xywh {40 142 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {40 140 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[4]} {
           user_data 4 user_data_type long
-          callback CurrentMotorCB
-          xywh {40 166 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {40 164 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[3]} {
           user_data 3 user_data_type long
-          callback CurrentMotorCB
-          xywh {40 190 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {40 188 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[0]} {
           user_data 0 user_data_type long
-          callback CurrentMotorCB
-          xywh {40 246 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {40 244 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[1]} {
           user_data 1 user_data_type long
-          callback CurrentMotorCB
-          xywh {40 270 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {40 268 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[2]} {
           user_data 2 user_data_type long
-          callback CurrentMotorCB
-          xywh {40 294 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {40 292 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[11]} {user_data_type long
-          callback CurrentMotorCB
-          xywh {256 142 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {256 140 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[10]} {
           user_data 10 user_data_type long
-          callback CurrentMotorCB
-          xywh {256 166 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {256 164 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[9]} {
           user_data 9 user_data_type long
-          callback CurrentMotorCB
-          xywh {256 190 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {256 188 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[6]} {
           user_data 6 user_data_type long
-          callback CurrentMotorCB
-          xywh {256 246 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {256 244 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[7]} {
           user_data 7 user_data_type long
-          callback CurrentMotorCB
-          xywh {256 270 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {256 268 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
         Fl_Round_Button {wCurrentMotor[8]} {
           user_data 8 user_data_type long
-          callback CurrentMotorCB
-          xywh {256 294 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+          callback TTrimPanel_SelectServoAction
+          xywh {256 292 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Button {} {
+          label {Go to}
+          user_data 45 user_data_type long
+          callback TTrimPanel_ServoGotoAction
+          xywh {78 440 58 24}
+        }
+        Fl_Button {} {
+          label Set
+          user_data 45 user_data_type long
+          callback TTrimPanel_ServoStoreTrimAction
+          xywh {136 440 58 24}
+        }
+        Fl_Box {} {
+          label {45 deg}
+          xywh {192 440 60 24}
+        }
+        Fl_Button {} {
+          label {Go to}
+          user_data 0 user_data_type long
+          callback TTrimPanel_ServoGotoAction
+          xywh {78 474 58 24}
+        }
+        Fl_Button {} {
+          label Set
+          user_data 0 user_data_type long
+          callback TTrimPanel_ServoStoreTrimAction
+          xywh {136 474 58 24}
+        }
+        Fl_Box {} {
+          label {0 deg}
+          xywh {192 474 60 24}
+        }
+        Fl_Button {} {
+          label {Go to}
+          user_data {-45} user_data_type long
+          callback TTrimPanel_ServoGotoAction
+          xywh {78 508 58 24}
+        }
+        Fl_Button {} {
+          label Set
+          user_data {-45} user_data_type long
+          callback TTrimPanel_ServoStoreTrimAction
+          xywh {136 508 58 24}
+        }
+        Fl_Box {} {
+          label {-45 deg}
+          xywh {192 508 60 24}
+        }
+        Fl_Button {} {
+          label {Go to}
+          user_data 90 user_data_type long
+          callback TTrimPanel_ServoGotoAction
+          xywh {78 406 58 24}
+        }
+        Fl_Box {} {
+          label {90 deg}
+          xywh {136 406 60 24}
+        }
+        Fl_Button {} {
+          label {Go to}
+          user_data {-90} user_data_type long
+          callback TTrimPanel_ServoGotoAction
+          xywh {78 542 58 24}
+        }
+        Fl_Box {} {
+          label {-90 deg}
+          xywh {136 542 60 24}
+        }
+        Fl_Button {} {
+          label {@8>}
+          user_data 1 user_data_type long
+          callback TTrimPanel_ServoNudgeAction
+          xywh {12 452 28 28}
+        }
+        Fl_Button {} {
+          label {@8>>}
+          user_data 10 user_data_type long
+          callback TTrimPanel_ServoNudgeAction
+          xywh {12 424 28 28}
+        }
+        Fl_Button {} {
+          label {@2>>}
+          user_data {-10} user_data_type long
+          callback TTrimPanel_ServoNudgeAction
+          xywh {12 525 28 28}
+        }
+        Fl_Button {} {
+          label {@2>}
+          user_data {-1} user_data_type long
+          callback TTrimPanel_ServoNudgeAction
+          xywh {12 497 28 28}
+        }
+        Fl_Box wTrimPanel_Formula {
+          label Formula
+          xywh {78 576 180 36} box THIN_DOWN_BOX labelsize 12
+        }
+        Fl_Value_Slider wTrimPanel_ServoAngle {
+          callback TTrimPanel_ServoAngleAction
+          xywh {268 336 28 278} minimum 90 maximum -90 step 0.1
+        }
+        Fl_Box {} {
+          label uSec
+          xywh {68 336 40 24} labelsize 11 align 20
+        }
+        Fl_Box {} {
+          label deg
+          xywh {228 336 40 24} labelsize 11 align 24
+        }
+        Fl_Button {} {
+          label Reset
+          callback TTrimPanel_ResetTrim
+          xywh {78 365 80 28}
+        }
+        Fl_Button {} {
+          label Store
+          callback TTrimPanel_SendTrimToBot
+          xywh {178 365 80 28}
         }
       }
     }
