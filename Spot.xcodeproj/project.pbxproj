@@ -49,6 +49,8 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
+		C96DC04E243FBCAA00C05C43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C96DC04F243FC30C00C05C43 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C9E2DB3A243A08C7002C1DF0 /* Motion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Motion.cpp; sourceTree = "<group>"; };
 		C9E2DB3C243A08C7002C1DF0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C9E2DB3D243A08C7002C1DF0 /* upload */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upload; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		C9E2DB27243A0701002C1DF0 = {
 			isa = PBXGroup;
 			children = (
+				C96DC04E243FBCAA00C05C43 /* README.md */,
 				C9E2DB38243A0886002C1DF0 /* Motion */,
 				C9ED245A243A2CC20098DFFF /* Spotter */,
 				C9ED2459243A2CC20098DFFF /* Products */,
@@ -214,6 +217,7 @@
 		C9ED245A243A2CC20098DFFF /* Spotter */ = {
 			isa = PBXGroup;
 			children = (
+				C96DC04F243FC30C00C05C43 /* README.md */,
 				C9ED246A243A2CFD0098DFFF /* Spotter.cpp */,
 				C9ED246B243A2CFD0098DFFF /* Spotter.h */,
 				C9ED246D243A2D2B0098DFFF /* SpotterUI.fl */,
