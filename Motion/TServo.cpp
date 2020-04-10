@@ -52,6 +52,34 @@ TServo::TServo(uint8_t inStore, uint8_t ix)
     LoadTrim();
 }
 
+/*
+double degToUs(double x) {
+    return factorA*x*x + factorB*x + factorC;
+}
+
+ */
+
+static void getFactors(float &a, float &b, float &c,
+                float x1, float y1,
+                float x2, float y2,
+                float x3, float y3)
+{
+    a = (x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2))/((x1-x2)*(x1-x3)*(x3-x2));
+    b = (x1*x1*(y2-y3)+x2*x2*(y3-y1)+x3*x3*(y1-y2))/((x1-x2)*(x1-x3)*(x2-x3));
+    c = (x1*x1*(x2*y3-x3*y2)+x1*(x3*x3*y2-x2*x2*y3)+x2*x3*y1*(x2-x3))/((x1-x2)*(x1-x3)*(x2-x3));
+}
+
+void TServo::setFactorsFromTrim()
+{
+    getFactors(mA, mB, mC, -45.0f, mTrimN45, 0.0f, mTrim0, 45.0f, mTrim45 );
+}
+
+void TServo::SetAngleDeg(float x)
+{
+    uint16_t uS = mA*x*x + mB*x + mC;
+    SetPosition(uS);
+}
+
 
 void TServo::UpdatePWM()
 {

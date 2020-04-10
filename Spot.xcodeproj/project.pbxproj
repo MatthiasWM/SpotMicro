@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C96DC052243FC94200C05C43 /* TPosePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C96DC050243FC94100C05C43 /* TPosePanel.cpp */; };
 		C9E32EEE243A35FF000164AD /* libfltk_images.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEC243A35F7000164AD /* libfltk_images.a */; };
 		C9E32EEF243A35FF000164AD /* libfltk_jpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EE9243A35F7000164AD /* libfltk_jpeg.a */; };
 		C9E32EF0243A35FF000164AD /* libfltk_png.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E32EEA243A35F7000164AD /* libfltk_png.a */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		C96DC04E243FBCAA00C05C43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C96DC04F243FC30C00C05C43 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C96DC050243FC94100C05C43 /* TPosePanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPosePanel.cpp; sourceTree = "<group>"; };
+		C96DC051243FC94200C05C43 /* TPosePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPosePanel.h; sourceTree = "<group>"; };
 		C9E2DB3A243A08C7002C1DF0 /* Motion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Motion.cpp; sourceTree = "<group>"; };
 		C9E2DB3C243A08C7002C1DF0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C9E2DB3D243A08C7002C1DF0 /* upload */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upload; sourceTree = "<group>"; };
@@ -84,11 +87,7 @@
 		C9E32F22243CF948000164AD /* TMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMonitor.cpp; sourceTree = "<group>"; };
 		C9E32F23243D000B000164AD /* TServo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TServo.cpp; sourceTree = "<group>"; };
 		C9E32F24243D000B000164AD /* TServo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TServo.h; sourceTree = "<group>"; };
-		C9ED244F243A21210098DFFF /* SpotScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotScreen.cpp; sourceTree = "<group>"; };
-		C9ED2450243A21210098DFFF /* SpotScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotScreen.h; sourceTree = "<group>"; };
-		C9ED2451243A21210098DFFF /* SpotPWM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotPWM.cpp; sourceTree = "<group>"; };
 		C9ED2452243A21210098DFFF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C9ED2453243A21210098DFFF /* SpotPWM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotPWM.h; sourceTree = "<group>"; };
 		C9ED2458243A2CC20098DFFF /* Spotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED245E243A2CC40098DFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9ED2463243A2CC40098DFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,10 +139,6 @@
 				C9E32F21243CF948000164AD /* TMonitor.h */,
 				C9E32F23243D000B000164AD /* TServo.cpp */,
 				C9E32F24243D000B000164AD /* TServo.h */,
-				C9ED2451243A21210098DFFF /* SpotPWM.cpp */,
-				C9ED2453243A21210098DFFF /* SpotPWM.h */,
-				C9ED244F243A21210098DFFF /* SpotScreen.cpp */,
-				C9ED2450243A21210098DFFF /* SpotScreen.h */,
 				C9E2DB3C243A08C7002C1DF0 /* Makefile */,
 				C9E2DB3D243A08C7002C1DF0 /* upload */,
 			);
@@ -202,6 +197,8 @@
 				C9E32F1E243CB2F5000164AD /* TMainPanel.h */,
 				C9E32F1B243CAE9F000164AD /* TTrimPanel.cpp */,
 				C9E32F1A243CAE9F000164AD /* TTrimPanel.h */,
+				C96DC050243FC94100C05C43 /* TPosePanel.cpp */,
+				C96DC051243FC94200C05C43 /* TPosePanel.h */,
 			);
 			path = Panels;
 			sourceTree = "<group>";
@@ -321,6 +318,7 @@
 				C9E32F15243B896D000164AD /* SpotterUI.fl in Sources */,
 				C9E32F0E243B4257000164AD /* TBluetoothClient.mm in Sources */,
 				C9E32F0D243B4257000164AD /* ChatBluetoothInterface_ObjC.m in Sources */,
+				C96DC052243FC94200C05C43 /* TPosePanel.cpp in Sources */,
 				C9ED246C243A2CFD0098DFFF /* Spotter.cpp in Sources */,
 				C9E32F11243B4958000164AD /* ChatClientController.mm in Sources */,
 				C9E32F0C243B4257000164AD /* ChatBluetoothInterface.m in Sources */,

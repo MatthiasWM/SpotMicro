@@ -9,58 +9,7 @@
 volatile int adc[16] = { 0 };
 volatile int currentAdc = 8;
 
-//int gCurrentServo = 0;
-
 TMonitor Monitor;
-
-//class SpServo {
-//public:
-//    SpServo(uint8_t ix) : pwmIx{ix} {}
-//    void UpdatePWM() {
-//        // send a command only if something changed
-//        bool mustUpdate = false;
-//        if (isOn!=wasOn) {
-//            wasOn = isOn;
-//            mustUpdate = true;
-//        }
-//        if (isOn) {
-//            if (isAt!=wasAt) {
-//                wasAt = isAt;
-//                mustUpdate = true;
-//            }
-//            if (mustUpdate) {
-//                setServoUSec(pwmIx, isAt);
-//                Serial.print("Servo set: ");
-//                Serial.print(pwmIx);
-//                Serial.print(", ");
-//                Serial.println(isAt);
-//            }
-//        } else {
-//            if (mustUpdate) {
-//                pwm.setPWM(pwmIx, 0, 0);
-//                Serial.print("Servo off: ");
-//                Serial.println(pwmIx);
-//            }
-//        }
-//    }
-//    void SetPower(bool on) { isOn = on; }
-//    void SetPosition(int pos) { isAt = pos; }
-//    int GetPosition() { return isAt; }
-//    bool isOn = false;
-//    bool wasOn = true;
-//    int isAt = 1500;
-//    int wasAt = 1499;
-//    uint8_t pwmIx = 255;
-//};
-//
-//SpServo gServoList[] {
-//    // teh numbers correspond to the PWM output channel in hardware
-//    SpServo( 3), SpServo( 2), SpServo( 1),     // front right leg
-//    SpServo( 7), SpServo( 6), SpServo( 5),     // front left leg
-//    SpServo(11), SpServo(10), SpServo( 9),     // hind right leg
-//    SpServo(15), SpServo(14), SpServo(13),     // hind left leg
-//};
-//int gNServoList = sizeof(gServoList) / sizeof(gServoList[0]);
 
 
 void updateServos()
@@ -75,19 +24,9 @@ void setup(void)
     digitalWrite(22, 1); // 0 enables PWM, 1 disables it
     pinMode(22, OUTPUT);
 
-#if 0
-    tone(45, 1396, 100);
-    delay(120);
-    tone(45, 1568, 100);
-    delay(120);
-    tone(45, 1760, 100);
-    delay(120);
-    tone(45, 1975, 100);
-#else
     tone(45, 2000, 10);
     delay(60);
     tone(45, 2000, 10);
-#endif
 
     analogReference(INTERNAL2V56);
     adc[10] = analogRead(A10);
@@ -172,97 +111,12 @@ int sPos = 1500;
 
 void loop(void)
 {
-#if 1
-    if (Serial1.available())
+    while (Serial1.available())
         Monitor.OnDataIn();
     auto now = millis();
     if (now>analogWriteTimer) {
         analogWriteTimer = now + 20;
         updateServos();
-
-        /*
-         for (int i=8; i<12; i++) {
-         Serial.print(adc[i]);
-         Serial.print(" ");
-         }
-         Serial.println("");
-         */
     }
-    //delay(1);
-#endif
-#if 0
-    int d;
-    for (d=0; d<200; d+=3) {
-        setServoUSec( 0, 1500-2*d);
-        setServoUSec( 1, 1500+2*d);
-        setServoUSec( 2, 1500-2*d);
-        setServoUSec( 3, 1500+2*d);
-        setServoUSec( 4, 1500+d);
-        setServoUSec( 5, 1500-d);
-        setServoUSec( 6, 1500+d);
-        setServoUSec( 7, 1500-d);
-        delay(20);
-    }
-    for (d=200; d>0; d-=3) {
-        setServoUSec( 0, 1500-2*d);
-        setServoUSec( 1, 1500+2*d);
-        setServoUSec( 2, 1500-2*d);
-        setServoUSec( 3, 1500+2*d);
-        setServoUSec( 4, 1500+d);
-        setServoUSec( 5, 1500-d);
-        setServoUSec( 6, 1500+d);
-        setServoUSec( 7, 1500-d);
-        delay(20);
-    }
-    delay(1000);
-#endif
-#if 0
-    for (int i=0; i<12; i++) {
-        setServoUSec( i, 1600);
-        delay(500);
-        setServoUSec( i, 1500);
-        delay(500);
-    }
-#endif
-} 
-
-
-void swrite(const char *txt)
-{
-//    int n = strlen(txt)+2;
-//    delay(n*8);
-    Serial1.println(txt);
-}
-
-//
-// http://keuwl.com/apps/bluetoothelectronics/userguide/remote_code.html
-//
-void ComposeTrimScreen()
-{
-    swrite("*.kwl");
-    swrite("clear_panel();");
-    swrite("set_grid_size(16, 8);");
-    swrite("set_panel_notes(\"Robowerk Spot\", \"Trim\", , );");
-
-    /*
-     // -- go back to the main panel
-     Serial1.write("add_button(14, 0, 4, \"back;\", );\n");
-     // -- reload this panel
-     Serial1.write("add_button(15, 0, 7, \"reload;\", );\n");
-     */
-    // -- motor power for all motors
-    swrite("add_switch(14, 6, 4, \"pwr1;\", \"pwr0;\", 0, 0);");
-
-    /*
-     // -- motors leg front right
-     Serial1.write("add_button(0, 5,  7, \"fr0a;\", );\n");
-     Serial1.write("add_button(0, 6, 12, \"fr1a;\", );\n");
-     Serial1.write("add_button(0, 7, 12, \"fr2a;\", );\n");
-     delay(100);
-     */
-    swrite("add_slider(3,1,7,1000,2000,1500,\"s\",\";\",0);");
-
-    swrite("run();");
-    swrite("*");
 }
 

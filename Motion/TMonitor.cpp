@@ -16,6 +16,7 @@ TMonitorAction TMonitor::mAction[]
 {
     { "C",      TMonitor::HandleActionServoDataRequest }, // servoID
     { "M",      TMonitor::HandleActionServoPower }, // servoID, on/off
+    { "a",      TMonitor::HandleActionServoAngle }, // angle in rad*1000
     { "beep",   TMonitor::HandleActionBeep }, // nothing
     { "s",      TMonitor::HandleActionServoPositionRaw }, // servoID, rawPosition
     { "trim",   TMonitor::HandleActionServoTrim }, // servoID, u-45, u0, u45
@@ -72,6 +73,14 @@ void TMonitor::HandleActionServoTrim(const char *args)
     }
     Servo[m].SetTrim(a, b, c);
     Servo[m].SaveTrim();
+}
+
+
+void TMonitor::HandleActionServoAngle(const char *args)
+{
+    uint8_t m = args[0]-'a';
+    int32_t a = atoi(args+1);
+    Servo[m].SetAngleDeg( ((float)a)/100.0f );
 }
 
 

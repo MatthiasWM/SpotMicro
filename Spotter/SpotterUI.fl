@@ -42,8 +42,8 @@ Function {CreateMainWindow()} {open
       xywh {0 108 320 534}
     } {
       Fl_Group {} {
-        label Trim open selected
-        xywh {0 130 320 510}
+        label Trim open
+        xywh {0 130 320 510} hide
       } {
         Fl_Value_Slider wTrimPanel_ServoSlider {
           callback TTrimPanel_ServoRawPositionAction
@@ -139,7 +139,8 @@ Function {CreateMainWindow()} {open
           callback TTrimPanel_SelectServoAction
           xywh {40 292 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
-        Fl_Round_Button {wCurrentMotor[11]} {user_data_type long
+        Fl_Round_Button {wCurrentMotor[11]} {
+          user_data 11 user_data_type long
           callback TTrimPanel_SelectServoAction
           xywh {256 140 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
         }
@@ -285,6 +286,107 @@ Function {CreateMainWindow()} {open
           label Store
           callback TTrimPanel_SendTrimToBot
           xywh {178 365 80 28}
+        }
+        Fl_Box {} {
+          label {left front leg}
+          xywh {64 244 92 28} labelsize 12 align 21
+        }
+        Fl_Box {} {
+          label {left hind  leg}
+          xywh {161 244 92 28} labelsize 12 align 25
+        }
+        Fl_Box {} {
+          label {right front leg}
+          xywh {64 184 92 28} labelsize 12 align 22
+        }
+        Fl_Box {} {
+          label {right hind leg}
+          xywh {161 184 92 28} labelsize 12 align 26
+        }
+      }
+      Fl_Group {} {
+        label Pose open
+        xywh {0 130 320 510}
+      } {
+        Fl_Check_Button {wPosePanel_LegPower[1]} {
+          user_data 1 user_data_type long
+          callback TPosePanel_LegPowerAction
+          xywh {14 150 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wPosePanel_LegPower[0]} {
+          user_data 0 user_data_type long
+          callback TPosePanel_LegPowerAction
+          xywh {14 206 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wPosePanel_LegPower[3]} {
+          user_data 3 user_data_type long
+          callback TPosePanel_LegPowerAction
+          xywh {278 150 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Check_Button {wPosePanel_LegPower[2]} {
+          user_data 2 user_data_type long
+          callback TPosePanel_LegPowerAction
+          xywh {278 206 24 24} down_box DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wPosePanel_SelectLegr[1]} {
+          user_data 1 user_data_type long
+          callback TPosePanel_SelectLegAction
+          xywh {38 150 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wPosePanel_SelectLegr[0]} {
+          user_data 0 user_data_type long
+          callback TPosePanel_SelectLegAction
+          xywh {38 206 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wPosePanel_SelectLegr[3]} {
+          user_data 3 user_data_type long
+          callback TPosePanel_SelectLegAction
+          xywh {254 150 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Round_Button {wPosePanel_SelectLegr[2]} {
+          user_data 2 user_data_type long
+          callback TPosePanel_SelectLegAction
+          xywh {254 206 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Box {} {
+          label {left front leg}
+          xywh {62 206 92 28} labelsize 12 align 21
+        }
+        Fl_Box {} {
+          label {left hind  leg}
+          xywh {159 206 92 28} labelsize 12 align 25
+        }
+        Fl_Box {} {
+          label {right front leg}
+          xywh {62 146 92 28} labelsize 12 align 22
+        }
+        Fl_Box {} {
+          label {right hind leg}
+          xywh {159 146 92 28} labelsize 12 align 26
+        }
+        Fl_Value_Slider wPosePanel_x {
+          label {X:}
+          callback TPosePanel_SetPositionAction
+          xywh {32 256 264 24} type Horizontal align 4 minimum -300 maximum 300 step 1
+        }
+        Fl_Value_Slider wPosePanel_y {
+          label {Y:}
+          callback TPosePanel_SetPositionAction
+          xywh {32 290 264 24} type Horizontal align 4 minimum -300 maximum 300 step 1
+        }
+        Fl_Value_Slider wPosePanel_z {
+          label {Z:}
+          callback TPosePanel_SetPositionAction
+          xywh {32 324 264 24} type Horizontal align 4 minimum -300 maximum 300 step 1
+        }
+        Fl_Round_Button {wPosePanel_SelectLegr[4]} {
+          user_data 4 user_data_type long
+          callback TPosePanel_SelectLegAction
+          xywh {76 179 24 24} type Radio down_box ROUND_DOWN_BOX labelsize 20
+        }
+        Fl_Box {} {
+          label {all legs...} selected
+          xywh {100 179 68 24} labelsize 12 align 20
         }
       }
     }

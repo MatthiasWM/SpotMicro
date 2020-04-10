@@ -28,6 +28,7 @@ public:
     void SetPower(bool on) { isOn = on; }
     void SetPosition(uint16_t pos) { isAt = pos; }
     uint16_t GetPosition() { return isAt; }
+    void SetAngleDeg(float a);
     void SetTrim(uint16_t a, uint16_t b, uint16_t c) { mTrimN45 = a; mTrim0 = b; mTrim45 = c; }
     void LoadTrim();
     void SaveTrim();
@@ -44,7 +45,9 @@ protected:
     uint16_t    mTrimN45 = 1000;
     uint16_t    mTrim0 = 1500;
     uint16_t    mTrim45 = 2000;
+    float       mA = 0.0f, mB = 11.11111f, mC=1500.0f;
 
+    void setFactorsFromTrim();
     void setServoUSec(uint8_t servo, uint32_t usec);
     void setServoPulse(uint8_t n, double pulse);
 };
